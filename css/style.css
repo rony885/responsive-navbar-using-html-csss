@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppines", sans-serif;
+}
+li{
+    list-style: none;
+}
+body{
+    background-color: tan;
+    min-height: 100vh;
+    /* background: url(/images/cta-bg.jpg) no-repeat; */
+    background-size: cover;
+    background-position: center;
+}
+.header{
+    /* position: fixed; */
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    background: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: orange; */
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+.logo{
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+.navbar ul {
+    display: flex;
+}
+.navbar a{
+    font-size: 1.15rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+    /* display: inline-block; */
+    padding: 7px 13px;
+    border-radius: 8px;
+    transition: .4s all ease;
+    /* background-color: coral; */
+}
+.navbar a:hover{
+    background-color: orangered;
+}
+#check{
+    display: none;
+}
+.icons{
+    position: absolute;
+    right: 5%;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+h2 {
+    color: blue; 
+    font-size: 20px
+}
+
+
+/* ==== Breakpoint ==== */
+@media (max-width: 992px){
+    .header{
+        padding: 1.3rem 5%;
+    }
+}
+@media (max-width: 768px){
+    .icons{
+        /* display: block; */
+        display: inline-flex;
+    }
+    #check:checked~.icons #menu_icon{
+        display: none;
+    }
+    .icons #close_icon{
+        display: none;
+    }
+    #check:checked~.icons #close_icon{
+        display: block;
+    }
+    .navbar{
+        position: absolute;
+        /* position: sticky; */
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 17.7rem;
+        height: 0;
+        background: gray;
+        /* background: green; */
+        backdrop-filter: blur(50px);
+        transition: .4s ease;
+        overflow: hidden;
+    }
+    #check:checked~.navbar{
+        height: 17.7rem;
+    }
+    .navbar ul {
+        display: block;
+    }
+    .navbar a{
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        transition: .4s ease;
+    }
+    #check:checked~.navbar a{
+        transform: translateY(0);
+    }
+    .navbar a:hover{
+        background: none;
+        color: crimson;
+    }
+}
+
+
